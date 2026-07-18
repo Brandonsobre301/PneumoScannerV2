@@ -7,7 +7,6 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 A full-stack AI web application that classifies chest X-ray images as **NORMAL** or **PNEUMONIA** in real time using a fine-tuned ResNet-18 model.
-<img width="892" height="854" alt="image" src="https://github.com/user-attachments/assets/f224bf67-5f23-4107-b786-b12efde64500" />
 
 ---
 
