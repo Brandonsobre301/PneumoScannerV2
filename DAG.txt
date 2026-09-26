@@ -1,0 +1,5 @@
+┌──> Agent 1: ML Engine (predict.py) ──────────────┐
+               │                                                  │
+[Contract Defined] ─> Agent 2: Offline Script (compute_stats.py) ──┼──> [Supervisor: Integration & QA]
+               │                                                  │
+               └──> Agent 3: Frontend UI (App.tsx / App.css) ─────┘

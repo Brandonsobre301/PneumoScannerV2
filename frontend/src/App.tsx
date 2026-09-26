@@ -2,11 +2,23 @@
 import React, { useState, useRef } from "react";
 import "./App.css";
 
+export interface PredictionResponse {
+  status: "success" | "ood";
+  prediction: "NORMAL" | "PNEUMONIA" | null;
+  confidence: number | null;
+  message?: string | null;
+  ood_metrics: {
+    cosine_distance: number | null;
+    mc_variance: number | null;
+    gatekeeper_confidence?: number | null;
+  };
+}
+
 function App() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [result, setResult] = useState<{ prediction: string; confidence: number } | null>(null);
+  const [result, setResult] = useState<PredictionResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -60,7 +72,7 @@ function App() {
     formData.append("file", selectedFile);
 
     try {
-      const res = await fetch("http://localhost:8000/predict", {
+      const res = await fetch("http://localhost:8000/analyze", {
         method: "POST",
         body: formData,
       });
@@ -69,10 +81,10 @@ function App() {
         throw new Error("Failed to analyze image");
       }
 
-      const data = await res.json();
+      const data: PredictionResponse = await res.json();
       setResult(data);
-    } catch (err: any) {
-      setError(err.message || "An error occurred during analysis.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred during analysis.");
     } finally {
       setIsAnalyzing(false);
     }
@@ -92,7 +104,7 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <h1>PneumoScan</h1>
+        <h1>PneumoScannerV2</h1>
         <p>Automated Pneumonia Detection via Chest X-ray</p>
       </header>
 
@@ -157,7 +169,16 @@ function App() {
 
         {error && <div className="error-message">{error}</div>}
 
-        {result && (
+        {result && result.status === "ood" && (
+          <div className="results-panel ood-warning">
+            <h3>Out-of-Distribution Warning</h3>
+            <p className="ood-message">
+              {result.message || "Invalid Image Detected: High uncertainty or out-of-distribution input."}
+            </p>
+          </div>
+        )}
+
+        {result && result.status === "success" && result.prediction && result.confidence !== null && (
           <div className="results-panel">
             <h3>Analysis Complete</h3>
             <div className="result-item">

@@ -32,4 +32,7 @@ header p { color: var(--text-secondary); font-size: 1.1rem; }
 .result-value.normal { color: #4ade80; }
 .result-value.pneumonia { color: #f87171; }
 .error-message { margin-top: 1rem; padding: 1rem; background-color: rgba(248,113,113,0.1); border: 1px solid #f87171; color: #f87171; border-radius: 6px; }
+.results-panel.ood-warning { border-left-color: #fbbf24; background-color: rgba(251,191,36,0.1); }
+.results-panel.ood-warning h3 { color: #fbbf24; }
+.ood-message { margin: 0; color: #fbbf24; font-size: 1.05rem; }
 

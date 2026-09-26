@@ -1,0 +1,11 @@
+{
+  "status": "ood",
+  "prediction": null,
+  "confidence": null,
+  "message": "Invalid image: this does not appear to be a chest X-ray. Please upload a valid chest radiograph.",
+  "ood_metrics": {
+    "cosine_distance": 0.85,
+    "mc_variance": 0.22,
+    "gatekeeper_confidence": 0.03
+  }
+}
