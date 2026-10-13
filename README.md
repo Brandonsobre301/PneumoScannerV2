@@ -10,6 +10,9 @@ A full-stack AI web application that classifies chest X-ray images as **NORMAL**
 
 <img width="471" height="647" alt="image" src="https://github.com/user-attachments/assets/b70e455f-1968-49f3-af3a-4a12ea132e1f" />
 
+<img width="302" height="916" alt="image" src="https://github.com/user-attachments/assets/20b80a25-f3ad-4967-aa32-674cba56a7d3" />
+
+<img width="1915" height="436" alt="image" src="https://github.com/user-attachments/assets/5ecc56e2-29a5-4435-9ecb-6599d5ea7b1e" />
 
 
 ---
