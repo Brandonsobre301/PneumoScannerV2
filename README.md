@@ -10,9 +10,7 @@ A full-stack AI web application that classifies chest X-ray images as **NORMAL**
 
 <img width="471" height="647" alt="image" src="https://github.com/user-attachments/assets/b70e455f-1968-49f3-af3a-4a12ea132e1f" />
 
-<img width="302" height="916" alt="image" src="https://github.com/user-attachments/assets/20b80a25-f3ad-4967-aa32-674cba56a7d3" />
 
-<img width="1915" height="436" alt="image" src="https://github.com/user-attachments/assets/5ecc56e2-29a5-4435-9ecb-6599d5ea7b1e" />
 
 
 ---
@@ -32,6 +30,8 @@ Automate pneumonia detection from chest X-rays using transfer learning, then sur
 | API | FastAPI + Uvicorn | `POST /predict` endpoint — accepts image upload, returns JSON |
 | Frontend | React + TypeScript + Vite | Dark-themed drag-and-drop UI, scanning animation, live results |
 
+<img width="302" height="916" alt="image" src="https://github.com/user-attachments/assets/20b80a25-f3ad-4967-aa32-674cba56a7d3" />
+
 **Why ResNet-18?** Fast to fine-tune, lightweight at inference time, and strong enough for binary medical image classification with limited data.
 
 ---
@@ -47,6 +47,7 @@ Trained for 10 epochs on the Kermany et al. chest X-ray dataset (100 train / 200
 | Test F1-Score | **0.7647** |
 
 > **Note:** Results reflect training on a small 100-image subset. Fine-tuning on the full ~5,800-image dataset will significantly improve test accuracy.
+<img width="1915" height="436" alt="image" src="https://github.com/user-attachments/assets/5ecc56e2-29a5-4435-9ecb-6599d5ea7b1e" />
 
 ---
 
